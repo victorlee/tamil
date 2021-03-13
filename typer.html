@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tamil typer</title>
+<meta charset="utf-8">
+
+    <script type="text/javascript">
+	  
+var conversion = {
+"k": "க",
+"c": "ச",
+"T": "ட",
+"t": "த",
+"p": "ப",
+"j": "ஜ",
+"ng": "ங",
+"ny": "ஞ",
+"N": "ண",
+"n": "ந",
+"m": "ம",
+"h": "ஹ",
+"y": "ய",
+"r": "ர",
+"l": "ல",
+"v": "வ",
+"sh": "ஶ",
+"S": "ஷ",
+"s": "ஸ",
+"R":"ழ",
+"L":"ள",
+"rr":"ற",
+
+"M": "ஂ",
+"H": "ஃ",
+"q": "்",
+"a": "&#8203;",
+"aa": "ா",
+"i": "ி",
+"ii": "ீ",
+"u": "ு",
+"uu": "ூ",
+"e": "ெ",
+"ee": "ே",
+"ai": "ை",
+"o": "ொ",
+"oo":"ோ",
+"au": "ௌ",
+"qa": "அ",
+"qaa": "ஆ",
+"qi": "இ",
+"qii": "ஈ",
+"qu": "உ",
+"quu": "ஊ",
+"qe": "எ",
+"qee":"ஏ",
+"qai": "ஐ",
+"qo": "ஒ",
+"qoo":"ஓ",
+"qau": "ஔ",
+
+"nay":"நய",
+"sah":"ஸஹ",
+"rar":"ரர",
+
+        };
+
+ var maxLength = Object.keys(conversion)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert (text) {
+    var converted = "";
+    var cur = 0;
+    while (cur < text.length) {
+      var testedPhoneme;
+      var symbol = undefined;
+      for (var length = maxLength; length > 0; length --) {
+        testedPhoneme = text.substr(cur, length);
+        if (conversion[testedPhoneme]) {
+          symbol = conversion[testedPhoneme];
+          break; // stop the loop
+        }
+      }
+      if (symbol) {
+        converted += symbol;
+        cur += testedPhoneme.length;
+      }
+      else {
+        converted += text[cur]
+        cur++;
+      }
+    }
+    return converted
+  }
+
+  function onInputTextChange(txt) {
+    var outputTextareaElem = document.getElementById("output_textarea");
+    var div = document.createElement("div");
+    var outputHtmlEntities = convert(txt);
+    div.innerHTML = outputHtmlEntities;
+    outputTextareaElem.value = div.innerText;
+  }
+
+
+        function select() {
+          const input = document.getElementById('input_textarea');
+          input.focus();
+          input.select();
+        }   
+        function copytext() {
+          var copyText = document.getElementById("output_textarea");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+    </script>
+    
+<style>
+html {
+font-family:arial
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+}
+td, th {
+  border: 1px solid #AAA;
+  text-align: center;
+  padding: 1px;
+}
+textarea {
+	font-size: 16pt;
+	font-family: Arial;
+    width: 96%;
+} 
+.note {
+  border: 1px solid #DDD;
+  width: 30%;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+</style>
+
+
+</head>
+<body>  
+
+<body>  
+
+<center><h1 class="text-center">Tamil typer</h1></center><br>
+ 
+<center>
+<table>
+<thead>
+<tr>
+<th>	
+<button onclick="select('input_textarea')">Select all</button>
+<button onclick="document.getElementById('input_textarea').value = ''">Clear</button>
+</th>
+<th>
+<button onclick="copytext()">Copy text</button>
+</th>
+<th style="width: 200px">Conversion table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<textarea
+id="input_textarea"
+autofocus=""
+placeholder="Input text here"
+rows="10"
+oninput="onInputTextChange(this.value)"></textarea>    
+</td>
+<td>
+<textarea rows="10" placeholder="output" id="output_textarea"></textarea>    
+</td>
+<td>
+
+<center>
+<div style="overflow-y: scroll; height:250px; width:170px">
+
+<table>
+<thead>
+<tr>
+<th>inp.</th>
+<th>out.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k</td>
+<td>க</td>
+</tr>
+<tr>
+<td>c</td>
+<td>ச</td>
+</tr>
+<tr>
+<td>T</td>
+<td>ட</td>
+</tr>
+<tr>
+<td>t</td>
+<td>த</td>
+</tr>
+<tr>
+<td>p</td>
+<td>ப</td>
+</tr>
+<tr>
+<td>j</td>
+<td>ஜ</td>
+</tr>
+<tr>
+<td>ng</td>
+<td>ங</td>
+</tr>
+<tr>
+<td>ny</td>
+<td>ஞ</td>
+</tr>
+<tr>
+<td>N</td>
+<td>ண</td>
+</tr>
+<tr>
+<td>n</td>
+<td>ந</td>
+</tr>
+<tr>
+<td>m</td>
+<td>ம</td>
+</tr>
+<tr>
+<td>h</td>
+<td>ஹ</td>
+</tr>
+<tr>
+<td>y</td>
+<td>ய</td>
+</tr>
+<tr>
+<td>r</td>
+<td>ர</td>
+</tr>
+<tr>
+<td>l</td>
+<td>ல</td>
+</tr>
+<tr>
+<td>v</td>
+<td>வ</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>ஶ</td>
+</tr>
+<tr>
+<td>S</td>
+<td>ஷ</td>
+</tr>
+<tr>
+<td>s</td>
+<td>ஸ</td>
+</tr>
+<tr>
+<td>R</td>
+<td>ழ</td>
+</tr>
+<tr>
+<td>L</td>
+<td>ள</td>
+</tr>
+<tr>
+<td>rr</td>
+<td>ற</td>
+</tr>
+<tr>
+<td>M</td>
+<td>ஂ</td>
+</tr>
+<tr>
+<td>H</td>
+<td>ஃ</td>
+</tr>
+<tr>
+<td>q</td>
+<td>்</td>
+</tr>
+<tr>
+<td>a</td>
+<td>#8203;</td>
+</tr>
+<tr>
+<td>aa</td>
+<td>ா</td>
+</tr>
+<tr>
+<td>i</td>
+<td>ி</td>
+</tr>
+<tr>
+<td>ii</td>
+<td>ீ</td>
+</tr>
+<tr>
+<td>u</td>
+<td>ு</td>
+</tr>
+<tr>
+<td>uu</td>
+<td>ூ</td>
+</tr>
+<tr>
+<td>e</td>
+<td>ெ</td>
+</tr>
+<tr>
+<td>ee</td>
+<td>ே</td>
+</tr>
+<tr>
+<td>ai</td>
+<td>ை</td>
+</tr>
+<tr>
+<td>o</td>
+<td>ொ</td>
+</tr>
+<tr>
+<td>oo</td>
+<td>ோ</td>
+</tr>
+<tr>
+<td>au</td>
+<td>ௌ</td>
+</tr>
+<tr>
+<td>qa</td>
+<td>அ</td>
+</tr>
+<tr>
+<td>qaa</td>
+<td>ஆ</td>
+</tr>
+<tr>
+<td>qi</td>
+<td>இ</td>
+</tr>
+<tr>
+<td>qii</td>
+<td>ஈ</td>
+</tr>
+<tr>
+<td>qu</td>
+<td>உ</td>
+</tr>
+<tr>
+<td>quu</td>
+<td>ஊ</td>
+</tr>
+<tr>
+<td>qe</td>
+<td>எ</td>
+</tr>
+<tr>
+<td>qee</td>
+<td>ஏ</td>
+</tr>
+<tr>
+<td>qai</td>
+<td>ஐ</td>
+</tr>
+<tr>
+<td>qo</td>
+<td>ஒ</td>
+</tr>
+<tr>
+<td>qoo</td>
+<td>ஓ</td>
+</tr>
+<tr>
+<td>qau</td>
+<td>ஔ</td>
+</tr>
+<tr>
+<td>nay</td>
+<td>நய</td>
+</tr>
+<tr>
+<td>sah</td>
+<td>ஸஹ</td>
+</tr>
+<tr>
+<td>rar</td>
+<td>ரர</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</center>
+
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+
+</body>
+</html>
