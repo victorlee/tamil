@@ -168,6 +168,12 @@ textarea {
 </th>
 <th>
 <button onclick="copytext()">Copy text</button>
+	<button onclick="madras()">U. Madras</button>
+	<script>
+function madras() {
+window.open("https://dsal.uchicago.edu/cgi-bin/app/tamil-lex_query.py?searchhws=yes&qs=" + document.getElementById('output_textarea').value + "&lang=sans&action=Search", "_blank");
+}
+	</script>
 </th>
 <th style="width: 200px">Conversion table</th>
 </tr>
