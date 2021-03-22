@@ -169,9 +169,13 @@ textarea {
 <th>
 <button onclick="copytext()">Copy text</button>
 	<button onclick="madras()">U. Madras</button>
+	<button onclick="agarathi()">Agarathi</button>
 	<script>
 function madras() {
 window.open("https://dsal.uchicago.edu/cgi-bin/app/tamil-lex_query.py?searchhws=yes&qs=" + document.getElementById('output_textarea').value + "&lang=sans&action=Search", "_blank");
+}
+		function agarathi() {
+window.open("https://agarathi.com/word/" + document.getElementById('output_textarea').value + "&lang=sans&action=Search", "_blank");
 }
 	</script>
 </th>
