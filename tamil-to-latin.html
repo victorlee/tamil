@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tamil to Latin converter</title>
+<meta charset="utf-8">
+
+    <script type="text/javascript">
+
+var conversion = {
+// plain
+
+"க்":"k",
+"க்":"g",
+"ச்":"c",
+"ட்":"ṭ",
+"த்":"t",
+"ப்":"p",
+"ஜ்":"j",
+"ங்":"ṅ",
+"ஞ்":"ñ",
+"ண்":"ṇ",
+"ந்":"n",
+"ம்":"m",
+"ஹ்":"h",
+"ய்":"y",
+"ர்":"r",
+"ல்":"l",
+"வ்":"v",
+"ஶ்":"ś",
+"ஷ்":"ṣ",
+"ஸ்":"s",
+"ழ்":"zh",
+"ள்":"ḷ",
+"ற்":"ṟ",
+"ன்":"ṉ",
+
+// a
+
+"க":"ka",
+"க":"ga",
+"ச":"ca",
+"ட":"ṭa",
+"த":"ta",
+"ப":"pa",
+"ஜ":"ja",
+"ங":"ṅa",
+"ஞ":"ña",
+"ண":"ṇa",
+"ந":"na",
+"ம":"ma",
+"ஹ":"ha",
+"ய":"ya",
+"ர":"ra",
+"ல":"la",
+"வ":"va",
+"ஶ":"śa",
+"ஷ":"ṣa",
+"ஸ":"sa",
+"ழ":"zha",
+"ள":"ḷa",
+"ற":"ṟa",
+"ன":"ṉa",
+
+// aa
+
+"கா":"kaa",
+"கா":"gaa",
+"சா":"caa",
+"டா":"ṭaa",
+"தா":"taa",
+"பா":"paa",
+"ஜா":"jaa",
+"ஙா":"ṅaa",
+"ஞா":"ñaa",
+"ணா":"ṇaa",
+"நா":"naa",
+"மா":"maa",
+"ஹா":"haa",
+"யா":"yaa",
+"ரா":"raa",
+"லா":"laa",
+"வா":"vaa",
+"ஶா":"śaa",
+"ஷா":"ṣaa",
+"ஸா":"saa",
+"ழா":"zhaa",
+"ளா":"ḷaa",
+"றா":"ṟaa",
+"னா":"ṉaa",
+
+// i
+
+"கி":"ki",
+"கி":"gi",
+"சி":"ci",
+"டி":"ṭi",
+"தி":"ti",
+"பி":"pi",
+"ஜி":"ji",
+"ஙி":"ṅi",
+"ஞி":"ñi",
+"ணி":"ṇi",
+"நி":"ni",
+"மி":"mi",
+"ஹி":"hi",
+"யி":"yi",
+"ரி":"ri",
+"லி":"li",
+"வி":"vi",
+"ஶி":"śi",
+"ஷி":"ṣi",
+"ஸி":"si",
+"ழி":"zhi",
+"ளி":"ḷi",
+"றி":"ṟi",
+"னி":"ṉi",
+
+// ii
+
+"கீ":"kii",
+"கீ":"gii",
+"சீ":"cii",
+"டீ":"ṭii",
+"தீ":"tii",
+"பீ":"pii",
+"ஜீ":"jii",
+"ஙீ":"ṅii",
+"ஞீ":"ñii",
+"ணீ":"ṇii",
+"நீ":"nii",
+"மீ":"mii",
+"ஹீ":"hii",
+"யீ":"yii",
+"ரீ":"rii",
+"லீ":"lii",
+"வீ":"vii",
+"ஶீ":"śii",
+"ஷீ":"ṣii",
+"ஸீ":"sii",
+"ழீ":"zhii",
+"ளீ":"ḷii",
+"றீ":"ṟii",
+"னீ":"ṉii",
+
+// u
+
+"கு":"ku",
+"கு":"gu",
+"சு":"cu",
+"டு":"ṭu",
+"து":"tu",
+"பு":"pu",
+"ஜு":"ju",
+"ஙு":"ṅu",
+"ஞு":"ñu",
+"ணு":"ṇu",
+"நு":"nu",
+"மு":"mu",
+"ஹு":"hu",
+"யு":"yu",
+"ரு":"ru",
+"லு":"lu",
+"வு":"vu",
+"ஶு":"śu",
+"ஷு":"ṣu",
+"ஸு":"su",
+"ழு":"zhu",
+"ளு":"ḷu",
+"று":"ṟu",
+"னு":"ṉu",
+
+// uu
+
+"கூ":"kuu",
+"கூ":"guu",
+"சூ":"cuu",
+"டூ":"ṭuu",
+"தூ":"tuu",
+"பூ":"puu",
+"ஜூ":"juu",
+"ஙூ":"ṅuu",
+"ஞூ":"ñuu",
+"ணூ":"ṇuu",
+"நூ":"nuu",
+"மூ":"muu",
+"ஹூ":"huu",
+"யூ":"yuu",
+"ரூ":"ruu",
+"லூ":"luu",
+"வூ":"vuu",
+"ஶூ":"śuu",
+"ஷூ":"ṣuu",
+"ஸூ":"suu",
+"ழூ":"zhuu",
+"ளூ":"ḷuu",
+"றூ":"ṟuu",
+"னூ":"ṉuu",
+
+// e
+
+"கெ":"ke",
+"கெ":"ge",
+"செ":"ce",
+"டெ":"ṭe",
+"தெ":"te",
+"பெ":"pe",
+"ஜெ":"je",
+"ஙெ":"ṅe",
+"ஞெ":"ñe",
+"ணெ":"ṇe",
+"நெ":"ne",
+"மெ":"me",
+"ஹெ":"he",
+"யெ":"ye",
+"ரெ":"re",
+"லெ":"le",
+"வெ":"ve",
+"ஶெ":"śe",
+"ஷெ":"ṣe",
+"ஸெ":"se",
+"ழெ":"zhe",
+"ளெ":"ḷe",
+"றெ":"ṟe",
+"னெ":"ṉe",
+
+// ee
+
+"கே":"kee",
+"கே":"gee",
+"சே":"cee",
+"டே":"ṭee",
+"தே":"tee",
+"பே":"pee",
+"ஜே":"jee",
+"ஙே":"ṅee",
+"ஞே":"ñee",
+"ணே":"ṇee",
+"நே":"nee",
+"மே":"mee",
+"ஹே":"hee",
+"யே":"yee",
+"ரே":"ree",
+"லே":"lee",
+"வே":"vee",
+"ஶே":"śee",
+"ஷே":"ṣee",
+"ஸே":"see",
+"ழே":"zhee",
+"ளே":"ḷee",
+"றே":"ṟee",
+"னே":"ṉee",
+
+// ai
+
+"கை":"kai",
+"கை":"gai",
+"சை":"cai",
+"டை":"ṭai",
+"தை":"tai",
+"பை":"pai",
+"ஜை":"jai",
+"ஙை":"ṅai",
+"ஞை":"ñai",
+"ணை":"ṇai",
+"நை":"nai",
+"மை":"mai",
+"ஹை":"hai",
+"யை":"yai",
+"ரை":"rai",
+"லை":"lai",
+"வை":"vai",
+"ஶை":"śai",
+"ஷை":"ṣai",
+"ஸை":"sai",
+"ழை":"zhai",
+"ளை":"ḷai",
+"றை":"ṟai",
+"னை":"ṉai",
+
+// o
+
+"கொ":"ko",
+"கொ":"go",
+"சொ":"co",
+"டொ":"ṭo",
+"தொ":"to",
+"பொ":"po",
+"ஜொ":"jo",
+"ஙொ":"ṅo",
+"ஞொ":"ño",
+"ணொ":"ṇo",
+"நொ":"no",
+"மொ":"mo",
+"ஹொ":"ho",
+"யொ":"yo",
+"ரொ":"ro",
+"லொ":"lo",
+"வொ":"vo",
+"ஶொ":"śo",
+"ஷொ":"ṣo",
+"ஸொ":"so",
+"ழொ":"zho",
+"ளொ":"ḷo",
+"றொ":"ṟo",
+"னொ":"ṉo",
+
+// oo
+
+"கோ":"koo",
+"கோ":"goo",
+"சோ":"coo",
+"டோ":"ṭoo",
+"தோ":"too",
+"போ":"poo",
+"ஜோ":"joo",
+"ஙோ":"ṅoo",
+"ஞோ":"ñoo",
+"ணோ":"ṇoo",
+"நோ":"noo",
+"மோ":"moo",
+"ஹோ":"hoo",
+"யோ":"yoo",
+"ரோ":"roo",
+"லோ":"loo",
+"வோ":"voo",
+"ஶோ":"śoo",
+"ஷோ":"ṣoo",
+"ஸோ":"soo",
+"ழோ":"zhoo",
+"ளோ":"ḷoo",
+"றோ":"ṟoo",
+"னோ":"ṉoo",
+
+// au
+
+"கௌ":"kau",
+"கௌ":"gau",
+"சௌ":"cau",
+"டௌ":"ṭau",
+"தௌ":"tau",
+"பௌ":"pau",
+"ஜௌ":"jau",
+"ஙௌ":"ṅau",
+"ஞௌ":"ñau",
+"ணௌ":"ṇau",
+"நௌ":"nau",
+"மௌ":"mau",
+"ஹௌ":"hau",
+"யௌ":"yau",
+"ரௌ":"rau",
+"லௌ":"lau",
+"வௌ":"vau",
+"ஶௌ":"śau",
+"ஷௌ":"ṣau",
+"ஸௌ":"sau",
+"ழௌ":"zhau",
+"ளௌ":"ḷau",
+"றௌ":"ṟau",
+"னௌ":"ṉau",
+
+
+// plain vowels
+
+"அ":"a",
+"ஆ":"ā",
+"இ":"i",
+"ஈ":"ī",
+"உ":"u",
+"ஊ":"ū",
+"எ":"e",
+"ஏ":"ē",
+"ஐ":"ai",
+"ஒ":"o",
+"ஓ":"ō",
+"ஔ":"au",
+
+"ஃ":"ḵ",
+"ஂ":"ṁ",
+
+
+
+// seperate vowels
+
+"ா":"ā",
+"ி":"i",
+"ீ":"ī",
+"ு":"u",
+"ூ":"ū",
+"ெ":"e",
+"ே":"ē",
+"ை":"ai",
+"ொ":"o",
+"ோ":"ō",
+"ௌ":"au",
+
+        };
+
+ var maxLength = Object.keys(conversion)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert (text) {
+    var converted = "";
+    var cur = 0;
+    while (cur < text.length) {
+      var testedPhoneme;
+      var symbol = undefined;
+      for (var length = maxLength; length > 0; length --) {
+        testedPhoneme = text.substr(cur, length);
+        if (conversion[testedPhoneme]) {
+          symbol = conversion[testedPhoneme];
+          break; // stop the loop
+        }
+      }
+      if (symbol) {
+        converted += symbol;
+        cur += testedPhoneme.length;
+      }
+      else {
+        converted += text[cur]
+        cur++;
+      }
+    }
+    return converted
+  }
+
+  function onInputTextChange(txt) {
+    var outputTextareaElem = document.getElementById("output_textarea");
+    var div = document.createElement("div");
+    var outputHtmlEntities = convert(txt);
+    div.innerHTML = outputHtmlEntities;
+    outputTextareaElem.value = div.innerText;
+  }
+
+
+        function select() {
+          const input = document.getElementById('input_textarea');
+          input.focus();
+          input.select();
+        }   
+        function copytext() {
+          var copyText = document.getElementById("output_textarea");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+function copy(that){
+var inp =document.createElement('input');
+document.body.appendChild(inp)
+inp.value =that.textContent
+inp.select();
+document.execCommand('copy',false);
+inp.remove();
+}
+    </script>
+    
+<style>
+@import url(https://victorlee.github.io/fonts/stylesheet.css);
+html {
+  font-family:arial;
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+}
+td, th {
+  border: 1px solid #AAA;
+  text-align: center;
+  padding: 1px;
+}
+textarea {
+	font-size: 13pt;
+    width: 96%;
+} 
+.note {
+  border: 1px solid #DDD;
+  width: 10%;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#char {
+  width:16rem;
+  cursor:pointer;
+}
+#char td:hover {
+  background-color: #eee;
+}
+</style>
+
+
+</head>
+<body>  
+
+<body>  
+
+<center><h1 class="text-center">Tamil to Latin converter</h1>
+</center>
+ 
+<center>
+<table>
+<thead>
+<tr>
+<th>	
+<button onclick="select('input_textarea')">Select all</button>
+<button onclick="document.getElementById('input_textarea').value = ''">Clear</button>
+</th>
+<th>
+	<button onclick="copytext()">Copy text</button>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<textarea rows="7" autofocus="" placeholder="input. font: Noto Serif 
+Tamil" id="input_textarea" style="font-family: 'Noto Serif Tamil'; font-size: 24px;" oninput="onInputTextChange(this.value)"></textarea>
+</td>
+<td>
+<textarea
+id="output_textarea"
+placeholder="output."
+rows="10"
+style="font-family: Arial; font-size:1.4rem;"
+spellcheck="false"></textarea>    
+</td>
+</tr>
+</tbody>
+</table>
+	
+
+</body>
+</html>
